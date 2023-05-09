@@ -10,7 +10,7 @@ python train.py --size 256 /root/autodl-tmp/pdata 2>&1 | tee /train.log
 ```
 3. generate !!!size!!!
 ```bash
-python generate.py --sample 1 --pics 1000 --size 256 --ckpt ./checkpoint/180000.pt
+python generate.py --sample 1 --pics 1000 --size 256 --ckpt .checkpoint/180000.pt
 ```
 4. check the size of ./sample folder
 ```bash
