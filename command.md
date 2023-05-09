@@ -16,3 +16,7 @@ python generate.py --sample 1 --pics 1000 --size 256 --ckpt .checkpoint/180000.p
 ```bash
 du -s -m ./sample
 ```
+5. transfer learning
+```bash
+python train.py --size 256 --iter 200000 --ckpt /root/autodl-tmp/170000.pt /root/autodl-tmp/pdata 2>&1 | tee /train.log
+```
