@@ -20,3 +20,7 @@ du -s -m ./sample
 ```bash
 python train.py --size 256 --iter 200000 --ckpt /root/autodl-tmp/170000.pt /root/autodl-tmp/pdata 2>&1 | tee /train.log
 ```
+6. gif
+```bash
+python gif_generator.py --sample 1 --pics 1000 --size 256 --ckpt .checkpoint/180000.pt
+```
