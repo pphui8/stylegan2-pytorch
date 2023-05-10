@@ -8,13 +8,15 @@ from tqdm import tqdm
 
 def generate(args, g_ema, device, mean_latent):
     sample_z = torch.randn(args.sample, args.latent, device=device)
-    growth_rate = 0.1
+    growth_rate = 0.3
+    shifted_dimention = 1
+    sample_z[:, shifted_dimention] = -150
 
     with torch.no_grad():
         g_ema.eval()
         for i in tqdm(range(args.pics)):
             # change the first dimension of sample_z
-            sample_z[:, 1] += growth_rate
+            sample_z[:, shifted_dimention] += growth_rate
 
             sample, _ = g_ema(
                 [sample_z], truncation=args.truncation, truncation_latent=mean_latent
