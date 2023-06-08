@@ -41,31 +41,6 @@ You should change your size (--size 256 for example) if you train with another d
 
 > python projector.py --ckpt [CHECKPOINT] --size [GENERATOR_OUTPUT_SIZE] FILE1 FILE2 ...
 
-### Closed-Form Factorization (https://arxiv.org/abs/2007.06600)
-
-You can use `closed_form_factorization.py` and `apply_factor.py` to discover meaningful latent semantic factor or directions in unsupervised manner.
-
-First, you need to extract eigenvectors of weight matrices using `closed_form_factorization.py`
-
-> python closed_form_factorization.py [CHECKPOINT]
-
-This will create factor file that contains eigenvectors. (Default: factor.pt) And you can use `apply_factor.py` to test the meaning of extracted directions
-
-> python apply_factor.py -i [INDEX_OF_EIGENVECTOR] -d [DEGREE_OF_MOVE] -n [NUMBER_OF_SAMPLES] --ckpt [CHECKPOINT] [FACTOR_FILE]
-
-For example,
-
-> python apply_factor.py -i 19 -d 5 -n 10 --ckpt [CHECKPOINT] factor.pt
-
-Will generate 10 random samples, and samples generated from latents that moved along 19th eigenvector with size/degree +-5.
-
-![Sample of closed form factorization](factor_index-13_degree-5.0.png)
-
-## Pretrained Checkpoints
-
-[Link](https://drive.google.com/open?id=1PQutd-JboOCOZqmd95XWxWrO8gGEvRcO)
-
-I have trained the 256px model on FFHQ 550k iterations. I got FID about 4.5. Maybe data preprocessing, resolution, training loop could made this difference, but currently I don't know the exact reason of FID differences.
 
 ## checkpoints
 链接: https://pan.baidu.com/s/1uvV-h_bHBSe2uCxB-sOJ7Q   
